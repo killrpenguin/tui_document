@@ -1,0 +1,11 @@
+[package]
+name = "tui_document"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ropey = "1.6.1"
+ratatui = { version = "*", features = ["serde", "macros"] }
+
+[dev-dependencies]
+insta = "1.43.1"

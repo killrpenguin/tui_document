@@ -134,7 +134,7 @@ impl<'a> Document<'_> {
     /// Writes the contents of the underlying `Rope` to a writer.
     ///
     /// When more precise control over IO behavior, buffering, etc. is
-    /// desired, you should handle IO yourself and use the [`Chunks`]
+    /// desired, you should handle IO yourself and use the `Chunks`
     /// iterator to iterate through the `Rope`'s contents.
     ///
     /// Runs in O(N) time.
@@ -234,6 +234,42 @@ impl<'a> Document<'_> {
     /// ```
     pub fn lines<'lines>(&'lines self) -> ropey::iter::Lines<'lines> {
         self.rope.lines()
+    }
+    /// An iterator over a `Rope`'s contiguous `str` chunks.
+    ///
+    /// Internally, each `Rope` stores text as a segemented collection of utf8
+    /// strings. This iterator iterates over those segments, returning a
+    /// `&str` slice for each one.  It is useful for situations such as:
+    ///
+    /// - Writing a rope's utf8 text data to disk (but see
+    ///   [`write_to()`](crate::rope::Rope::write_to) for a convenience function that does this
+    ///   for casual use-cases).
+    /// - Streaming a rope's text data somewhere.
+    /// - Saving a rope to a non-utf8 encoding, doing the encoding conversion
+    ///   incrementally as you go.
+    /// - Writing custom iterators over a rope's text data.
+    ///
+    /// There are precisely two guarantees about the yielded chunks:
+    ///
+    /// - All non-empty chunks are yielded, and they are yielded in order.
+    /// - CRLF pairs are never split across chunks.
+    ///
+    /// There are no guarantees about the size of yielded chunks, and except for
+    /// CRLF pairs and being valid `str` slices there are no guarantees about
+    /// where the chunks are split.  For example, they may be zero-sized, they
+    /// don't necessarily align with line breaks, etc.
+
+    /// ```
+    /// use tui_document::Document;
+    ///
+    /// let doc = Document::from_str("doc_name_goes_here", "Hello world!");
+    /// let mut chunk = doc.chunks();
+    ///
+    /// assert_eq!(chunk.next(), Some("Hello world!"));
+    /// assert_eq!(chunk.next(), None);
+    /// ```
+    pub fn chunks<'chunks>(&'chunks self) -> ropey::iter::Chunks<'chunks> {
+        self.rope.chunks()
     }
     /// Gets an immutable slice of the underlying Rope, using char indices.
     ///

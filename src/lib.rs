@@ -46,7 +46,6 @@ mod tests {
     use ratatui::{Terminal, backend::TestBackend};
 
     #[test]
-    // Note to self: use cargo insta test
     fn render_widget_integration_test() {
         let app = Document::from_str(
             "TestDoc.txt",

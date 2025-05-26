@@ -7,7 +7,7 @@ description = "A Ratatui widget wrapping the Ropey crate."
 documentation = "https://docs.rs/tui_document"
 repository = "https://github.com/killrpenguin/tui_document"
 categories = ["text-editors", "text-processing"]
-keywords = ["tui", "editor", "input", "ratatui", "text-processing", "data-structures"]
+keywords = ["tui", "editor", "input", "ratatui", "text-processing"]
 exclude = [".gitignore"]
 edition = "2024"
 

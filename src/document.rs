@@ -242,7 +242,7 @@ impl<'a> Document<'_> {
     /// `&str` slice for each one.  It is useful for situations such as:
     ///
     /// - Writing a rope's utf8 text data to disk (but see
-    ///   [`write_to()`](crate::rope::Rope::write_to) for a convenience function that does this
+    ///   [`write_to()`](crate::Document::write_file) for a convenience function that does this
     ///   for casual use-cases).
     /// - Streaming a rope's text data somewhere.
     /// - Saving a rope to a non-utf8 encoding, doing the encoding conversion

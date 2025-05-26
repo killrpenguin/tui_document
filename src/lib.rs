@@ -6,7 +6,7 @@ mod document;
 pub use crate::document::Document;
 
 use ratatui::{
-    buffer, layout, text,
+    buffer, layout,
     widgets::{self, Paragraph},
 };
 // Pass out the underlying Ropey Error messages.
@@ -37,22 +37,17 @@ impl<'a> widgets::Widget for &Document<'_> {
             .render(area, buf);
     }
 }
-struct Test {}
-
-impl std::fmt::Display for Test {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{}", "test")
-    }
-}
 
 #[cfg(test)]
 mod tests {
     use super::Document;
+
     use insta::assert_snapshot;
     use ratatui::{Terminal, backend::TestBackend};
 
     #[test]
-    fn render_doc() {
+    // Note to self: use cargo insta test
+    fn render_widget_integration_test() {
         let app = Document::from_str(
             "TestDoc.txt",
             "This is a line of text.\nThis is another line of text.",
@@ -61,7 +56,7 @@ mod tests {
         terminal
             .draw(|frame| frame.render_widget(&app, frame.area()))
             .unwrap();
-        //        assert_snapshot!("snapshot", terminal.backend(), "debug_expr_to shutup lsp."); // LSP problem?
+        assert_snapshot!(terminal.backend());
     }
 
     #[test]

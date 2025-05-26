@@ -392,11 +392,6 @@ impl<Str: Into<String>> FromIterator<Str> for Document<'_> {
         iter.into()
     }
 }
-// impl std::fmt::Display for Document<'_> {
-//     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-//         write!(f, "{}", self.rope.slice(..))
-//     }
-// }
 impl<'a> Clone for Document<'_> {
     fn clone(&self) -> Self {
         Self {

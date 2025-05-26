@@ -1,6 +1,10 @@
 [package]
 name = "tui_document"
-version = "0.1.0"
+version = "0.9.0"
+authors = ["David McFarland <dmcfarland8031@gmail.com>"]
+description = "A Ratatui widget wrapping the Ropey crate."
+documentation = "https://docs.rs/tui_document"
+repository = "https://github.com/killrpenguin/tui_document"
 edition = "2024"
 
 [dependencies]

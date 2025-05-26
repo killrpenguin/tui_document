@@ -7,6 +7,7 @@ documentation = "https://docs.rs/tui_document"
 repository = "https://github.com/killrpenguin/tui_document"
 categories = ["text-editors", "text-processing"]
 keywords = ["tui", "editor", "input", "ratatui", "text-processing", "data-structures"]
+exclude = [".gitignore"]
 edition = "2024"
 
 [dependencies]

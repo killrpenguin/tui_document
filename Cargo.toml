@@ -5,6 +5,8 @@ authors = ["David McFarland <dmcfarland8031@gmail.com>"]
 description = "A Ratatui widget wrapping the Ropey crate."
 documentation = "https://docs.rs/tui_document"
 repository = "https://github.com/killrpenguin/tui_document"
+categories = ["text-editors", "text-processing"]
+keywords = ["tui", "editor", "input", "ratatui", "text-processing", "data-structures"]
 edition = "2024"
 
 [dependencies]

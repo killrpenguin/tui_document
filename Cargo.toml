@@ -13,7 +13,7 @@ edition = "2024"
 
 [dependencies]
 ropey = "1.6.1"
-ratatui = { version = "*", features = ["serde", "macros"] }
+ratatui = { version = "0.29.0", features = ["serde", "macros"] }
 
 [dev-dependencies]
 insta = "1.43.1"

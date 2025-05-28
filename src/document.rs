@@ -16,6 +16,7 @@ use std::{
 
 use crate::RopeyResult;
 
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct Document<'a> {
     name: Option<path::PathBuf>,

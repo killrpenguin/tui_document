@@ -2,9 +2,9 @@
 source: src/lib.rs
 expression: terminal.backend()
 ---
-"This is a line of text.                                                         "
-"This is another line of text.                                                   "
-"                                                                                "
+"A widget to display some text. It is used to display a block of text. The text  "
+"can be styled and aligned. It can also be wrapped to the next line if it is too "
+"long to fit in the given area.                                                  "
 "                                                                                "
 "                                                                                "
 "                                                                                "

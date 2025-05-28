@@ -1,10 +1,8 @@
-//!```no_run
-//!```
-
 extern crate ratatui;
 extern crate ropey;
 
 mod document;
+mod search;
 pub use crate::document::Document;
 
 use ratatui::{buffer, layout, text, widgets::*};
@@ -25,9 +23,9 @@ impl<'a> Document<'_> {
                     .wrap(self.wrap.unwrap_or(Wrap { trim: true }))
                     .render(text_area, buf);
             }
-            // I think the only real error case I can expect here is an out of bounds error.
+            // I think the only error case I can expect here is an out of bounds error?
             // IDEA: Write a function that gets visible size by Rect area and produces a paragraph by rope len?
-            // IDEA: Do more bounds checking on document.visible_range?
+            // IDEA: Do more bounds checking on document.visible_range and handle error in to_line. 
             Err(err) => panic!("{}", err),
         };
     }
@@ -43,7 +41,7 @@ impl<'a> Widget for &Document<'_> {
         let _ = &self.render_document(area, buf);
     }
 }
-pub trait CustomConvertions {
+pub(crate) trait CustomConvertions {
     fn to_line<'a>(&'a mut self) -> RopeyResult<text::Line<'a>>;
 }
 impl CustomConvertions for ropey::RopeSlice<'_> {

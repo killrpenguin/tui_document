@@ -61,9 +61,15 @@ impl<'a> Document<'a> {
         }
     }
     /// Creates a 'Document' from a string slice.
-    ///
+    /// # Example
+    /// ```
+    /// use tui_document::Document;
+    /// let doc_str = Document::from_str("This is a string slice.");
+    /// let doc_string = Document::from_str("This is a string".to_string());
+    /// ```
     /// This is a convience constructor.
-    pub fn from_str(text: &str) -> Self {
+    pub fn from_str<S: AsRef<str>>(text: S) -> Self {
+        let text = text.as_ref();
         Self {
             name: None,
             rope: Rope::from_str(text),

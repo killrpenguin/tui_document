@@ -528,13 +528,11 @@ dependencies = [
 
 [[package]]
 name = "tui_document"
-version = "0.9.23"
+version = "0.9.24"
 dependencies = [
  "insta",
  "ratatui",
  "ropey",
- "unicode-segmentation",
- "unicode-width 0.2.0",
 ]
 
 [[package]]

@@ -1,6 +1,6 @@
 [package]
 name = "tui_document"
-version = "0.9.23"
+version = "0.9.24"
 license = "MIT"
 authors = ["David McFarland <dmcfarland8031@gmail.com>"]
 description = "A Ratatui widget wrapping the Ropey crate."
@@ -14,8 +14,6 @@ edition = "2024"
 [dependencies]
 ropey = "1.6.1"
 ratatui = { version = "0.29.0", features = ["serde", "macros"] }
-unicode-segmentation = "1.12.0"
-unicode-width = "0.2.0"
 
 [dev-dependencies]
 insta = "1.43.1"

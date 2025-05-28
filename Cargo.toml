@@ -1,6 +1,6 @@
 [package]
 name = "tui_document"
-version = "0.9.24"
+version = "0.9.25"
 license = "MIT"
 authors = ["David McFarland <dmcfarland8031@gmail.com>"]
 description = "A Ratatui widget wrapping the Ropey crate."

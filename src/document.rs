@@ -514,7 +514,7 @@ impl<'a> Document<'a> {
         }
         None
     }
-    /// Rename the document. See name [`name`].
+    /// Rename the document. See `name`.
     pub fn rename<S: AsRef<str>>(&mut self, path: S) {
         self.name = Some(PathBuf::from(path.as_ref()))
     }

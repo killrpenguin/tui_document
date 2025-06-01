@@ -13,7 +13,6 @@ pub struct SearchIter<'a> {
     cur_index: usize,
     bad_char_map: HashMap<char, usize>,
 }
-
 impl<'a> SearchIter<'a> {
     pub(crate) fn from_rope_slice<'b>(slice: RopeSlice<'b>, pattern: &'b str) -> SearchIter<'b> {
         let pattern_len = pattern.len();

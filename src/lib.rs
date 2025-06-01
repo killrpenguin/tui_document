@@ -25,7 +25,7 @@ impl<'a> Document<'_> {
             }
             // I think the only error case I can expect here is an out of bounds error?
             // IDEA: Write a function that gets visible size by Rect area and produces a paragraph by rope len?
-            // IDEA: Do more bounds checking on document.visible_range and handle error in to_line. 
+            // IDEA: Do more bounds checking on document.visible_range and handle error in to_line.
             Err(err) => panic!("{}", err),
         };
     }
@@ -60,6 +60,8 @@ mod tests {
 
     use insta::assert_snapshot;
     use ratatui::{Terminal, backend::TestBackend};
+    static TEXT: &str = "A widget to display some text. It is used to display a block of text. The text can be styled and aligned. It can also be wrapped to the next line if it is too long to fit in the given area.
+    ";
 
     #[test]
     fn render_widget_integration_test() {
@@ -71,11 +73,4 @@ mod tests {
         //        This throws an error with my LSP so I keep it commented out unless I'm testing.
         //        assert_snapshot!(terminal.backend());
     }
-
-    #[test]
-    fn test_booyer_moore() {}
-
-    static TEXT: &str = "
-A widget to display some text. It is used to display a block of text. The text can be styled and aligned. It can also be wrapped to the next line if it is too long to fit in the given area.
-    ";
 }

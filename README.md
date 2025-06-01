@@ -1,7 +1,7 @@
 ## tui_document Goal:
 Bring the rope data structure to a Ratatui widget. This crate wraps the ['ropey'](https://crates.io/crates/ropey) crate. 
 The rope data structure is a binary tree used for efficiently manipulating long strings. The author of
-the ropey crate has a great paper on ['Ropey's Design'](https://github.com/cessen/ropey/blob/master/design/design.md). his specific implementation of this data structure.
+the ropey crate has a great paper on ['Ropey's Design'](https://github.com/cessen/ropey/blob/master/design/design.md) that goes over his specific implementation of this data structure.
 
 ## When should I use tui_document:
 The underlying ropey crate allocates space in kilobytes. Small text documents don't need a rope.
@@ -25,4 +25,4 @@ require frequent edits or efficient search functionality.
  Some of the code and documentation in this crate has been taken directly from Ropey source code.
  My goal in this project is to produce a widget that wraps a great crate and bring it to the Ratitui community.
  
- All credit goes to [cessen](https://github.com/cessen/ropey) and the [ropey crate](https://crates.io/crates/ropey) crate.
+ All credit goes to [cessen](https://github.com/cessen/ropey) and the [ropey](https://crates.io/crates/ropey) crate.

@@ -97,8 +97,6 @@ impl<'a> Document<'a> {
     ///   that error.
     /// - If non-utf8 data is encountered, an IO error with kind
     ///   `InvalidData` is returned.
-    /// - If the PathBuf can't be identified as a file, an IO error with
-    ///    with kind 'NotFound' is returned.
     ///
     pub fn from_reader<R: io::Read>(reader: R) -> io::Result<Self> {
         let rope: ropey::Rope = ropey::Rope::from_reader(reader)?;
